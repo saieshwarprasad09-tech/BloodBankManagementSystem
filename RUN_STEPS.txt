@@ -1,0 +1,20 @@
+BLOOD BANK MANAGEMENT SYSTEM — RUN STEPS
+
+1. Extract BloodBankManagementSystem.zip.
+2. Open the extracted folder in IntelliJ IDEA (choose the folder containing pom.xml).
+3. Wait for Maven import; if needed click Reload All Maven Projects.
+4. MySQL Workbench > connect > File > Open SQL Script > database/bloodbank.sql > Execute ⚡. Refresh SCHEMAS; find bloodbank_db.
+5. Edit src/main/java/com/bloodbank/util/DBConnection.java and replace your_password with your MySQL root password.
+6. Right-click DBTest.java > Run. Expected: Database Connected Successfully!
+   - Access denied = wrong MySQL password.
+   - Unknown database = SQL script was not executed.
+   - Communications link failure = MySQL service may be stopped.
+7. Install/use Apache Tomcat 10.1+. IntelliJ > Run > Edit Configurations > + > Tomcat Server > Local. Select Tomcat folder.
+8. Deployment > + > Artifact > blood-bank-management:war exploded. Context path: /bloodbank. Apply > OK.
+9. Run Tomcat and visit http://localhost:8080/bloodbank/
+10. Register donor > login > view availability > submit request > view My Requests.
+11. Admin page: http://localhost:8080/bloodbank/admin/login.jsp
+    Username: admin    Password: admin123
+12. Admin dashboard lets you set stock units and change request status.
+
+Do not run JSP pages directly with IntelliJ's normal Run button; run the web application using Tomcat.
